@@ -134,7 +134,7 @@ export default function ProductCatalog({ category: controlledCategory, onCategor
   }
 
   const configurationText = !selectedEntry ? "" : category === "ssl" ? [
-    "云序 · 演示配置清单",
+    "安信云 · 演示配置清单",
     `产品：${selectedEntry.name}`,
     `证书类型：${selectedEntry.id === "ssl-dv" ? "域名验证型 DV" : "组织验证型 OV"}`,
     `域名范围：${domainScope}`,
@@ -142,7 +142,7 @@ export default function ProductCatalog({ category: controlledCategory, onCategor
     "签发流程与服务价格：按实际需求确认",
     "此清单仅用于样板展示，不构成实际报价或订单。",
   ].join("\n") : [
-    "云序 · 演示配置清单",
+    "安信云 · 演示配置清单",
     `产品：${activeCategory.name} / ${plan.name}`,
     `选型入口：${selectedEntry.name}${selectedEntry.tag ? ` · ${selectedEntry.tag}` : ""}`,
     `部署地域：${region}`,

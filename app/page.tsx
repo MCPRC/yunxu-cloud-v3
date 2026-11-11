@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowRight, ArrowUp, BookOpen, Check, ChevronDown, ChevronLeft, ChevronRight, Cloud, Code2, Database, FileText, Gift, Globe2, Headphones, HeartHandshake, Layers3, LockKeyhole, Menu, MonitorCog, Network, Search, Server, ShieldCheck, ShoppingBag, SlidersHorizontal, Users, X, Zap } from "lucide-react";
+import { ArrowRight, ArrowUp, BookOpen, Check, ChevronDown, ChevronRight, Cloud, Code2, Database, FileText, Gift, Globe2, Headphones, HeartHandshake, Layers3, LockKeyhole, Menu, MonitorCog, Network, Search, Server, ShieldCheck, ShoppingBag, SlidersHorizontal, Users, X, Zap } from "lucide-react";
 import ProductCatalog, { type CategoryId } from "../components/ProductCatalog";
 import GlobalNetwork from "../components/GlobalNetwork";
+import HeroCarousel from "../components/HeroCarousel";
 
 type DialogView = { kind: "help" | "solutions" | "text" | "search"; title: string; body?: string[] };
 type NavEntry = { title: string; description: string; action: string };
@@ -25,7 +26,7 @@ const faqs = [
   { question: "这里可以直接购买或开通服务器吗？", answer: "当前页面是云服务官网设计样板。你可以切换产品、预览配置和复制清单；品牌、配置、价格与公告均为演示内容，没有接入实际付款、账户或云资源开通服务。" },
 ];
 const notices = [
-  { title: "云序官网样板上线说明", date: "2026-11-10", body: "本样板展示云服务官网的信息结构与交互方式。产品分类、地区选型、配置预览、全球网络和公告入口均可操作。品牌与内容为演示用途。" },
+  { title: "安信云官网样板上线说明", date: "2026-11-10", body: "本样板展示云服务官网的信息结构与交互方式。产品分类、地区选型、配置预览、全球网络和公告入口均可操作。品牌与内容为演示用途。" },
   { title: "弹性云服务器产品选型指南", date: "2026-11-09", body: "在产品服务中选择弹性云服务器，再选择一个演示地区，即可查看配置。请从应用负载、内存、存储与公网带宽几个维度比较方案。" },
   { title: "新手上云：从地域选择到配置预览", date: "2026-11-08", body: "先了解用户所在地区，再评估应用资源需求。页面提供地区卡片和配置清单预览，帮助梳理选择过程。展示的地区与线路不代表实际服务覆盖。" },
   { title: "SSL 安全证书选型说明", date: "2026-11-07", body: "安全证书分类提供 DV 与 OV 两种选型入口。你可以查看演示配置与说明；正式证书的验证要求、价格与签发时间需以实际服务商为准。" },
@@ -46,8 +47,8 @@ const navigation = [
     { title: "帮助文档", description: "查看常见问题与选型说明", action: "help" },
     { title: "服务条款", description: "查看本演示站的使用说明", action: "terms" },
   ] },
-  { id: "about", label: "关于我们", description: "了解云序官网样板与页面动态", items: [
-    { title: "公司简介", description: "了解云序概念品牌", action: "about" },
+  { id: "about", label: "关于我们", description: "了解安信云官网样板与页面动态", items: [
+    { title: "公司简介", description: "了解安信云概念品牌", action: "about" },
     { title: "新闻动态", description: "查看网站公告与产品说明", action: "announcements" },
     { title: "全球网络", description: "查看区域与连接示意", action: "network" },
   ] },
@@ -60,14 +61,13 @@ const featureItems = [
 ];
 
 function Brand() {
-  return <a className="brand" href="#top" aria-label="云序首页"><svg className="brand-symbol" viewBox="0 0 38 38" fill="none" aria-hidden="true"><path d="M9 26.5h20a6 6 0 0 0 .8-11.95A10.5 10.5 0 0 0 9.5 13.2 6.7 6.7 0 0 0 9 26.5Z" stroke="currentColor" strokeWidth="2.7" strokeLinejoin="round"/><path d="m13 20 5-5 5 5m-5-5v15" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round"/></svg><span className="brand-wordmark"><strong>云序 <span>YUNXU</span></strong><small>云计算 · 概念样板</small></span></a>;
+  return <a className="brand" href="#top" aria-label="安信云首页"><svg className="brand-symbol" viewBox="0 0 38 38" fill="none" aria-hidden="true"><path d="M9 26.5h20a6 6 0 0 0 .8-11.95A10.5 10.5 0 0 0 9.5 13.2 6.7 6.7 0 0 0 9 26.5Z" stroke="currentColor" strokeWidth="2.7" strokeLinejoin="round"/><path d="m13 20 5-5 5 5m-5-5v15" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round"/></svg><span className="brand-wordmark"><strong>安信云</strong><small>云计算 · 概念样板</small></span></a>;
 }
 
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [navOpen, setNavOpen] = useState<string | null>(null);
   const [category, setCategory] = useState<CategoryId>("cloud");
-  const [slide, setSlide] = useState(0);
   const [info, setInfo] = useState<DialogView | null>(null);
   const [solution, setSolution] = useState(0);
   const [query, setQuery] = useState("");
@@ -105,8 +105,8 @@ export default function Home() {
     if (action === "help") { openInfo({ kind: "help", title: "帮助文档" }); return; }
     if (action === "consult") { openSolution(); return; }
     const content: Record<string, [string, ...string[]]> = {
-      terms: ["服务条款 · 样板说明", "云序 YUNXU 是用于展示云服务官网结构和交互的概念品牌。本页面不提供实际云资源售卖、账户注册或付款服务。", "页面中的配置、价格、区域、公告和服务入口均为演示内容。复制的配置清单不构成实际报价或订单。正式运营前需配置真实产品及适用条款。"],
-      about: ["关于云序", "云序 YUNXU 是一个云服务官网概念样板，用清楚的产品分类、地区选择和配置预览，展示从了解产品到选择方案的浏览过程。", "当前展示弹性云服务器、高频云服务器、裸金属服务器与安全证书四类入口。"],
+      terms: ["服务条款 · 样板说明", "安信云 是用于展示云服务官网结构和交互的概念品牌。本页面不提供实际云资源售卖、账户注册或付款服务。", "页面中的配置、价格、区域、公告和服务入口均为演示内容。复制的配置清单不构成实际报价或订单。正式运营前需配置真实产品及适用条款。"],
+      about: ["关于安信云", "安信云 是一个云服务官网概念样板，用清楚的产品分类、地区选择和配置预览，展示从了解产品到选择方案的浏览过程。", "当前展示弹性云服务器、高频云服务器、裸金属服务器与安全证书四类入口。"],
       partners: ["合作伙伴", "这里展示合作伙伴入口。在正式网站中，可用于介绍渠道合作、资源互联及技术服务合作。", "当前样板不征集真实合作申请。你可以通过产品入口了解资源分类，或使用选型助手比较业务方案。"],
       affiliate: ["推广计划", "这里展示推广合作入口，正式网站可接入申请、推广链接和佣金明细。当前样板未设立真实返佣或奖励计划。"],
       console: ["控制台 · 功能预览", "当前为官网设计样板，未接入真实资源控制台。你可以在产品服务中选择地区、预览配置，并复制配置清单。"],
@@ -142,10 +142,7 @@ export default function Home() {
     </header>
 
     <main id="main">
-      <section className="hero" id="top" aria-labelledby="hero-title" aria-roledescription="轮播图">
-        <div className="hero-inner container"><div className="hero-copy" aria-live="polite"><span className="hero-kicker">{slide === 0 ? "云端起步 从容生长" : "灵活配置 按需选择"}</span><h1 id="hero-title">{slide === 0 ? "让业务向前，把复杂留给云" : "从一台云，开启更多可能"}</h1><p>{slide === 0 ? "从第一个网站，到下一次业务增长。" : "计算、存储与网络，为业务选择恰当的配置。"}</p><a href="#products" className="hero-link">{slide === 0 ? "探索云产品" : "开始产品选型"}<ArrowRight size={17} /></a><div className="hero-dots" aria-label="选择主视觉内容">{[0, 1].map(i => <button type="button" key={i} aria-label={`第 ${i + 1} 张主视觉`} aria-pressed={slide === i} className={slide === i ? "active" : ""} onClick={() => setSlide(i)} />)}</div></div><div className="hero-visual"><img src="/images/hero-cloud.webp" width="1536" height="1024" alt="蓝色玻璃云朵悬浮于白色计算平台上" fetchPriority="high" /></div></div>
-        <button className="hero-arrow hero-prev" type="button" aria-label="上一张主视觉" onClick={() => setSlide(slide === 0 ? 1 : 0)}><ChevronLeft size={24} /></button><button className="hero-arrow hero-next" type="button" aria-label="下一张主视觉" onClick={() => setSlide(slide === 0 ? 1 : 0)}><ChevronRight size={24} /></button>
-      </section>
+      <HeroCarousel />
       <div className="service-rail container" aria-label="快捷入口">
         {[{ icon: Gift, title: "最新活动", text: "产品资讯，了解最新动态", action: "announcements" }, { icon: Layers3, title: "产品选型，轻松上云", text: "找到适合业务的云上配置", action: "products" }, { icon: Users, title: "生态合作，携手同行", text: "了解合作伙伴与推广计划", action: "partners" }, { icon: MonitorCog, title: "弹性计算，管理简单", text: "云端资源，清楚选配", action: "console" }].map(({ icon: Icon, title, text, action }) => <button type="button" key={title} onClick={() => act(action)}><span className="rail-icon"><Icon size={29} strokeWidth={1.6} /></span><span><strong>{title}</strong><small>{text}</small></span></button>)}
       </div>
@@ -166,7 +163,7 @@ export default function Home() {
       { title: "代理系统", links: [["合作伙伴", "partners"], ["代理推广", "affiliate"], ["推广明细", "affiliate"]] },
       { title: "帮助中心", links: [["行业新闻", "announcements"], ["帮助文档", "help"], ["文件下载", "downloads"]] },
       { title: "关于我们", links: [["公司简介", "about"], ["联系我们", "consult"], ["公司动态", "announcements"], ["全球网络", "network"]] },
-    ].map(group => <div key={group.title}><h3>{group.title}</h3>{group.links.map(([label, action]) => <button type="button" key={label} onClick={() => act(action)}>{label}</button>)}</div>)}</div><div className="footer-contact"><div className="footer-contact-shortcuts"><button type="button" onClick={() => act("consult")}><span><Headphones size={32} strokeWidth={1.4} /></span>选型咨询</button><button type="button" onClick={() => act("help")}><span><BookOpen size={32} strokeWidth={1.4} /></span>帮助文档</button></div><Brand /><p>让计算，连接更多可能。</p></div><div className="technology-row" aria-label="技术主题示意">{[{ icon: LockKeyhole, name: "HTTPS" }, { icon: Globe2, name: "IPv6" }, { icon: Network, name: "HTTP/2" }, { icon: ShieldCheck, name: "HSTS" }, { icon: Globe2, name: "BGP" }].map(({ icon: Icon, name }) => <span key={name}><Icon size={25} strokeWidth={1.5} /><strong>{name}</strong></span>)}<small>技术主题 · 示意</small></div></div><div className="footer-bottom"><div className="container"><div><span>© 2026 云序 YUNXU · 云服务官网设计样板</span><p>品牌、配置、价格、区域与公告仅用于演示，不提供实际售卖服务。</p></div><button type="button" onClick={() => act("about")}>关于本站<ChevronRight size={15} /></button></div></div></footer>
+    ].map(group => <div key={group.title}><h3>{group.title}</h3>{group.links.map(([label, action]) => <button type="button" key={label} onClick={() => act(action)}>{label}</button>)}</div>)}</div><div className="footer-contact"><div className="footer-contact-shortcuts"><button type="button" onClick={() => act("consult")}><span><Headphones size={32} strokeWidth={1.4} /></span>选型咨询</button><button type="button" onClick={() => act("help")}><span><BookOpen size={32} strokeWidth={1.4} /></span>帮助文档</button></div><Brand /><p>让计算，连接更多可能。</p></div><div className="technology-row" aria-label="技术主题示意">{[{ icon: LockKeyhole, name: "HTTPS" }, { icon: Globe2, name: "IPv6" }, { icon: Network, name: "HTTP/2" }, { icon: ShieldCheck, name: "HSTS" }, { icon: Globe2, name: "BGP" }].map(({ icon: Icon, name }) => <span key={name}><Icon size={25} strokeWidth={1.5} /><strong>{name}</strong></span>)}<small>技术主题 · 示意</small></div></div><div className="footer-bottom"><div className="container"><div><span>© 2026 安信云 · 云服务官网设计样板</span><p>品牌、配置、价格、区域与公告仅用于演示，不提供实际售卖服务。</p></div><button type="button" onClick={() => act("about")}>关于本站<ChevronRight size={15} /></button></div></div></footer>
 
     <aside className="floating-tools" aria-label="页面工具"><button className="support-trigger" type="button" aria-label="在线咨询" onClick={() => act("consult")}><Headphones size={24} strokeWidth={1.6} /><span>在线咨询</span></button><button type="button" aria-label="查看帮助文档" onClick={() => act("help")}><BookOpen size={20} /></button><button type="button" aria-label="查看服务条款" onClick={() => act("terms")}><FileText size={20} /></button>{showTop && <button type="button" aria-label="返回顶部" onClick={() => jump("top")}><ArrowUp size={21} /></button>}</aside>
 
