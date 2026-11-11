@@ -13,7 +13,7 @@
 .nx-copy > div + div { margin-top: 29px; }
 .nx-copy h3 { font-size: 22px; margin-bottom: 12px; }
 .nx-copy p { color: var(--muted); font-size: 13px; line-height: 1.9; }
-.nx-globe { position: absolute; z-index: 1; right: -38px; bottom: -82px; width: 880px; max-width: 83%; height: auto; pointer-events: none; }
+.nx-diagram { position: absolute; z-index: 1; right: 0; bottom: 0; width: 590px; max-width: 60%; height: auto; pointer-events: none; }
 .nx-region-rail {
   position: relative;
   z-index: 3;
@@ -78,7 +78,7 @@
 @media (max-width: 1000px) {
   .nx-section { padding-top: 60px; }
   .nx-copy { max-width: 43%; }
-  .nx-globe { right: -105px; max-width: 87%; bottom: -55px; }
+  .nx-diagram { right: 0; max-width: 55%; bottom: 0; }
   .nx-region-rail { gap: 6px; padding-inline: 12px; }
   .nx-bottomline { display: block; }
   .nx-note { margin-top: 5px; }
@@ -92,7 +92,7 @@
   .nx-copy > div + div { margin-top: 0; }
   .nx-copy h3 { font-size: 18px; margin-bottom: 10px; }
   .nx-copy p { font-size: 12px; line-height: 1.85; }
-  .nx-globe { width: 650px; max-width: none; right: 50%; transform: translateX(50%); bottom: -50px; opacity: .85; }
+  .nx-diagram { width: 420px; max-width: 100%; right: 50%; transform: translateX(50%); bottom: 0; }
   .nx-region-rail { grid-template-columns: repeat(5, minmax(74px, 1fr)); overflow-x: auto; gap: 3px; padding: 10px 7px; scrollbar-width: thin; overscroll-behavior-x: contain; }
   .nx-region { padding: 5px 2px; gap: 8px; }
   .nx-region-icon { width: 45px; height: 45px; }

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "安信云 · 云计算产品与服务",
-  description: "安信云云服务官网概念样板：弹性云服务器、高频云服务器、裸金属与安全证书，探索部署区域、产品配置与服务支持。",
+  title: "安信云 · 国内高防与 DDoS 防护",
+  description: "安信云专注国内高防与 DDoS 防护。了解网站、游戏和在线服务的防护选型思路，比较部署地域与服务器配置。",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

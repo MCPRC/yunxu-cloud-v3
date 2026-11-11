@@ -4,22 +4,30 @@ import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react
 const slides = [
   {
     image: "/images/hero-idc-datacenter.webp",
-    kicker: "云端起步 从容生长",
-    title: "让业务向前，把复杂留给云",
-    description: "从第一个网站，到下一次业务增长。",
-    link: "探索云产品",
+    kicker: "国内高防",
+    title: "国内高防，专注 DDoS 防护",
+    description: "面向国内网站、游戏和在线服务，按业务流量与攻击风险规划防护。",
+    link: "查看产品配置",
   },
   {
     image: "/images/hero-idc-edge.webp",
-    kicker: "灵活配置 按需选择",
-    title: "从一台云，开启更多可能",
-    description: "计算、存储与网络，为业务选择恰当的配置。",
-    link: "开始产品选型",
+    kicker: "防护方案选型",
+    title: "按业务场景规划防护",
+    description: "结合用户分布、正常流量和历史攻击峰值，评估接入方式与防护需求。",
+    link: "对比产品配置",
+  },
+  {
+    image: "/images/hero-game-shield.webp",
+    kicker: "游戏业务 DDoS 防护",
+    title: "高防游戏盾 · 百 T 级防护",
+    description: "面向游戏登录、网关和长连接场景。实际防护容量与接入条件以方案确认为准。",
+    link: "了解游戏盾方案",
+    gameShield: true,
   },
 ];
 const rotationDelay = 6000;
 
-export default function HeroCarousel() {
+export default function HeroCarousel({ onGameShield }: { onGameShield: () => void }) {
   const heroRef = useRef<HTMLElement>(null);
   const [frame, setFrame] = useState({ active: 0, previous: -1, direction: 1 });
   const [paused, setPaused] = useState(false);
@@ -97,7 +105,11 @@ export default function HeroCarousel() {
             <span className="hero-kicker">{current.kicker}</span>
             <h1 id="hero-title">{current.title}</h1>
             <p>{current.description}</p>
-            <a href="#products" className="hero-link">{current.link}<ArrowRight size={17} /></a>
+            {current.gameShield ? (
+              <button type="button" className="hero-link" onClick={onGameShield}>{current.link}<ArrowRight size={17} /></button>
+            ) : (
+              <a href="#products" className="hero-link">{current.link}<ArrowRight size={17} /></a>
+            )}
           </div>
           <div className="hero-dots" role="group" aria-label="选择主视觉内容">
             <button

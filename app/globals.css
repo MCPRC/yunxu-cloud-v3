@@ -52,6 +52,9 @@ img{max-width:100%;display:block}h1,h2,h3,p{margin:0}h1,h2,h3{font-weight:700;li
 .skip-link{position:fixed;left:12px;top:-80px;z-index:100;background:var(--surface);border:2px solid var(--brand);padding:10px 18px}.skip-link:focus{top:12px}
 /* The reference uses a compact navigation followed by a broad hero. */
 .site-header{height:64px;position:sticky;top:0;z-index:40;background:var(--canvas);border-bottom:1px solid var(--line)}
+@supports (backdrop-filter:blur(1px)){
+  .site-header{background:color-mix(in srgb,var(--canvas) 76%,transparent);backdrop-filter:blur(14px) saturate(1.12)}
+}
 .header-inner{height:100%;display:flex;align-items:center;padding-left:40px;gap:31px;margin-inline:auto;max-width:1600px}
 .brand{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;color:var(--brand);flex-shrink:0}
 .brand-symbol{width:35px;height:35px}.brand-wordmark{display:block;line-height:1.2}.brand-wordmark>strong{color:var(--ink);font-size:22px;letter-spacing:.025em;display:block}.brand-wordmark>strong span{font-size:12px;letter-spacing:.05em}.brand-wordmark>small{display:block;font-size:9px;letter-spacing:.08em;margin-top:4px;color:var(--subtle-ink)}

@@ -15,27 +15,27 @@ const productItems: NavEntry[] = [
   { title: "安全证书 | SSL", description: "了解域名与组织验证证书", action: "product:ssl" },
 ];
 const solutions = [
-  { name: "网站解决方案", icon: Code2, title: "从第一个网站，开始云上旅程", description: "为个人网站、企业官网与轻量应用，组合计算、存储与安全资源。先从实际需求出发，再随业务成长调整配置。", tags: ["企业官网", "个人博客", "开发测试"], flow: ["访问用户", "安全防护", "云服务器", "数据存储"], tips: ["从轻量配置开始，按实际需求选配", "应用与数据分层，方便后续维护", "为域名配置 HTTPS，保护访问连接"] },
-  { name: "电商解决方案", icon: ShoppingBag, title: "为每一次业务增长，预留空间", description: "从商品展示到订单处理，将业务按功能拆分部署。独立规划应用与数据资源，并为业务高峰保留扩容余地。", tags: ["在线商城", "企业系统", "内容平台"], flow: ["业务流量", "流量分发", "应用集群", "业务数据库"], tips: ["应用与数据库独立部署", "为业务高峰提前预留计算资源", "建立备份策略，保留恢复路径"] },
-  { name: "游戏解决方案", icon: Zap, title: "把计算放在距离用户更近的地方", description: "围绕用户分布选择部署区域，结合单核性能、连接数量与数据更新频率规划实例，让实时服务的资源安排更清楚。", tags: ["游戏服务", "实时互动", "长连接应用"], flow: ["在线玩家", "边缘防护", "高频计算", "状态存储"], tips: ["根据主要玩家位置选择部署区域", "评估单核性能与持续连接需求", "将公共入口与内部服务隔离"] },
+  { name: "网站解决方案", icon: Code2, title: "为网站入口规划 DDoS 防护", description: "为企业官网、内容站和 API 入口梳理访问域名、正常带宽及历史攻击情况，评估接入方式与防护容量。", tags: ["企业官网", "个人博客", "开发测试"], flow: ["访问用户", "安全防护", "云服务器", "数据存储"], tips: ["梳理对外域名、端口和业务协议", "核对源站访问限制和回源方式", "为域名配置 HTTPS，保护访问连接"] },
+  { name: "电商解决方案", icon: ShoppingBag, title: "保护商城与订单入口", description: "区分促销期间的正常流量与异常流量，优先评估商城、登录及订单接口的防护需求。", tags: ["在线商城", "企业系统", "内容平台"], flow: ["业务流量", "流量分发", "应用集群", "业务数据库"], tips: ["应用与数据库独立部署", "记录促销峰值与关键接口的容量需求", "规划异常流量处置和业务恢复流程"] },
+  { name: "游戏解决方案", icon: Zap, title: "高防游戏盾 · 百 T 级防护", description: "面向游戏登录、网关和长连接业务。按玩家分布、协议与历史攻击峰值评估接入方案。实际防护容量与适用条件以方案确认为准。", tags: ["游戏服务", "实时互动", "长连接应用"], flow: ["在线玩家", "游戏盾接入", "游戏网关", "游戏源站"], tips: ["根据主要玩家位置选择部署区域", "记录连接峰值、协议和端口", "将公共入口与内部服务隔离"] },
 ];
 const faqs = [
-  { question: "第一次上云，应该怎么选配置？", answer: "先确定应用类型、预计访问量和主要用户所在地区。个人网站与开发测试可以从较小配置开始；持续运行的业务应结合实际负载评估 CPU、内存、带宽和备份需求。点击产品区的地区卡，即可预览演示配置并复制清单。" },
+  { question: "国内高防选型需要准备哪些信息？", answer: "建议先整理业务类型、用户所在地区、正常带宽峰值和对外开放的端口。如果遇到过 DDoS 攻击，也可以记录攻击峰值、持续时间和受影响的业务入口，用于评估防护需求。" },
   { question: "月付和年付应该怎么选择？", answer: "短期测试或需求尚未确定时，月付便于控制投入；持续运行的业务可以比较年付总额。本样板以年付相对月付合计优惠 20% 演示，同时展示全年金额，不代表真实报价。" },
-  { question: "如何选择服务器所在区域？", answer: "优先考虑主要用户的位置、应用依赖和数据要求。实际网络质量需要通过目标线路测试确认。本页地区与网络图仅用于展示选型方式，不代表真实机房覆盖或实时延迟。" },
-  { question: "这里可以直接购买或开通服务器吗？", answer: "当前页面是云服务官网设计样板。你可以切换产品、预览配置和复制清单；品牌、配置、价格与公告均为演示内容，没有接入实际付款、账户或云资源开通服务。" },
+  { question: "国内高防方案如何选择部署地域？", answer: "先看用户所在地区和运营商，再核对业务入口到源站的回源路径、时延及数据要求。实际接入表现以线路测试为准。" },
+  { question: "这里可以直接购买或开通服务器吗？", answer: "当前页面是国内高防与 DDoS 防护。你可以切换产品、预览配置和复制清单；品牌、配置、价格与公告均为演示内容，没有接入实际付款、账户或云资源开通服务。" },
 ];
 const notices = [
-  { title: "安信云官网样板上线说明", date: "2026-11-10", body: "本样板展示云服务官网的信息结构与交互方式。产品分类、地区选型、配置预览、全球网络和公告入口均可操作。品牌与内容为演示用途。" },
-  { title: "弹性云服务器产品选型指南", date: "2026-11-09", body: "在产品服务中选择弹性云服务器，再选择一个演示地区，即可查看配置。请从应用负载、内存、存储与公网带宽几个维度比较方案。" },
-  { title: "新手上云：从地域选择到配置预览", date: "2026-11-08", body: "先了解用户所在地区，再评估应用资源需求。页面提供地区卡片和配置清单预览，帮助梳理选择过程。展示的地区与线路不代表实际服务覆盖。" },
-  { title: "SSL 安全证书选型说明", date: "2026-11-07", body: "安全证书分类提供 DV 与 OV 两种选型入口。你可以查看演示配置与说明；正式证书的验证要求、价格与签发时间需以实际服务商为准。" },
-  { title: "月付与年付演示计费说明", date: "2026-11-06", body: "计算类产品配置支持月付与年付切换。年付演示使用相对月付总额优惠 20% 的规则，同时展示年付总额。所有价格均为样板数据。" },
-  { title: "关于配置清单与样板数据", date: "2026-11-05", body: "配置清单可以复制用于讨论与设计评审。页面不会创建实际订单，也不会开通云资源。部署时请替换为真实商品、服务条款、联系方式与公告。" },
+  { title: "国内高防选型需要准备什么", date: "2026-11-10", body: "梳理业务入口、用户分布、正常流量与历史攻击情况，再评估合适的接入方式和防护容量。" },
+  { title: "源站部署与防护配置如何区分", date: "2026-11-09", body: "源站按应用负载选择计算、内存、存储和公网带宽。防护容量与清洗能力需要按业务协议和攻击情况另行确认。" },
+  { title: "国内业务如何评估接入线路", date: "2026-11-08", body: "结合主要用户的地区与运营商，比较访问质量、回源路径与接入要求。页面上的地域和线路用于选型示意。" },
+  { title: "HTTPS 证书与 DDoS 防护的分工", date: "2026-11-07", body: "SSL 证书用于验证站点身份和加密连接。DDoS 防护用于处置异常流量。网站选型时可分别核对证书类型、接入方式和防护容量。" },
+  { title: "源站配置的月付与年付示例", date: "2026-11-06", body: "计算类产品配置支持月付与年付切换。年付演示使用相对月付总额优惠 20% 的规则，同时展示年付总额。所有价格均为样板数据。" },
+  { title: "如何使用防护选型清单", date: "2026-11-05", body: "可以复制源站配置清单，并补充业务端口、正常流量与历史攻击峰值，作为方案沟通资料。实际防护能力和费用以确认后的方案为准。" },
 ];
 const navigation = [
-  { id: "products", label: "产品服务", description: "从计算到连接，了解适合业务的产品", items: productItems },
-  { id: "solutions", label: "解决方案", description: "从业务场景出发，规划云上资源", items: solutions.map((s, i) => ({ title: s.name, description: s.description, action: `solution:${i}` })) },
+  { id: "products", label: "产品服务", description: "从源站配置到接入线路，梳理部署与防护需求", items: productItems },
+  { id: "solutions", label: "解决方案", description: "按网站、电商和游戏场景梳理 DDoS 防护需求", items: solutions.map((s, i) => ({ title: s.name, description: s.description, action: `solution:${i}` })) },
   { id: "partners", label: "生态合作", description: "在开放协作中，找到新的可能", items: [
     { title: "合作伙伴", description: "了解合作方向与资源协作方式", action: "partners" },
     { title: "推广计划", description: "查看推广合作入口的样板说明", action: "affiliate" },
@@ -48,20 +48,20 @@ const navigation = [
     { title: "服务条款", description: "查看本演示站的使用说明", action: "terms" },
   ] },
   { id: "about", label: "关于我们", description: "了解安信云官网样板与页面动态", items: [
-    { title: "公司简介", description: "了解安信云概念品牌", action: "about" },
+    { title: "公司简介", description: "了解安信云的高防业务方向", action: "about" },
     { title: "新闻动态", description: "查看网站公告与产品说明", action: "announcements" },
-    { title: "全球网络", description: "查看区域与连接示意", action: "network" },
+    { title: "国内高防线路", description: "比较国内地域与接入线路", action: "network" },
   ] },
 ];
 const featureItems = [
   { icon: Code2, title: "弹性计算", description: "围绕业务负载选择计算资源，从轻量应用到持续运行的服务，让配置与实际需求相匹配。", tags: ["按需配置", "成本规划", "业务弹性"] },
   { icon: SlidersHorizontal, title: "多样化配置", description: "对比 CPU、内存、存储与带宽，为不同应用选择合适的实例类型和操作系统。", tags: ["灵活选择", "配置预览", "多系统选型"] },
-  { icon: ShieldCheck, title: "安全的网络", description: "将连接加密、访问边界与数据备份纳入部署计划，为应用规划清晰的安全边界。", tags: ["数据保护", "网络隔离", "访问管理", "安全规划"] },
+  { icon: ShieldCheck, title: "DDoS 防护规划", description: "根据业务入口、历史攻击峰值和可接受的中断时间，评估防护容量与接入方式。", tags: ["业务入口", "攻击峰值", "接入方式"] },
   { icon: MonitorCog, title: "管理简单", description: "以清楚的产品分类和配置清单，统一理解资源选择，让每一步操作都有明确方向。", tags: ["清晰选型", "直观界面", "配置清单", "便捷管理"] },
 ];
 
 function Brand() {
-  return <a className="brand" href="#top" aria-label="安信云首页"><svg className="brand-symbol" viewBox="0 0 38 38" fill="none" aria-hidden="true"><path d="M9 26.5h20a6 6 0 0 0 .8-11.95A10.5 10.5 0 0 0 9.5 13.2 6.7 6.7 0 0 0 9 26.5Z" stroke="currentColor" strokeWidth="2.7" strokeLinejoin="round"/><path d="m13 20 5-5 5 5m-5-5v15" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round"/></svg><span className="brand-wordmark"><strong>安信云</strong><small>云计算 · 概念样板</small></span></a>;
+  return <a className="brand" href="#top" aria-label="安信云首页"><svg className="brand-symbol" viewBox="0 0 38 38" fill="none" aria-hidden="true"><path d="M9 26.5h20a6 6 0 0 0 .8-11.95A10.5 10.5 0 0 0 9.5 13.2 6.7 6.7 0 0 0 9 26.5Z" stroke="currentColor" strokeWidth="2.7" strokeLinejoin="round"/><path d="m13 20 5-5 5 5m-5-5v15" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round"/></svg><span className="brand-wordmark"><strong>安信云</strong><small>国内高防 · DDoS 防护</small></span></a>;
 }
 
 export default function Home() {
@@ -96,7 +96,7 @@ export default function Home() {
     setInfo(view);
   }
   function textDialog(title: string, ...body: string[]) { openInfo({ kind: "text", title, body }); }
-  function openSolution(index = 0) { setSolution(index); openInfo({ kind: "solutions", title: "业务解决方案" }); }
+  function openSolution(index = 0) { setSolution(index); openInfo({ kind: "solutions", title: "DDoS 防护场景" }); }
   function act(action: string) {
     setNavOpen(null); setMobileOpen(false);
     if (action.startsWith("product:")) { setCategory(action.split(":")[1] as CategoryId); setInfo(null); jump("products"); return; }
@@ -105,8 +105,8 @@ export default function Home() {
     if (action === "help") { openInfo({ kind: "help", title: "帮助文档" }); return; }
     if (action === "consult") { openSolution(); return; }
     const content: Record<string, [string, ...string[]]> = {
-      terms: ["服务条款 · 样板说明", "安信云 是用于展示云服务官网结构和交互的概念品牌。本页面不提供实际云资源售卖、账户注册或付款服务。", "页面中的配置、价格、区域、公告和服务入口均为演示内容。复制的配置清单不构成实际报价或订单。正式运营前需配置真实产品及适用条款。"],
-      about: ["关于安信云", "安信云 是一个云服务官网概念样板，用清楚的产品分类、地区选择和配置预览，展示从了解产品到选择方案的浏览过程。", "当前展示弹性云服务器、高频云服务器、裸金属服务器与安全证书四类入口。"],
+      terms: ["服务条款 · 样板说明", "本站展示安信云国内高防与 DDoS 防护的选型流程。本页面不提供实际云资源售卖、账户注册或付款服务。", "页面中的配置、价格、区域、公告和服务入口均为演示内容。复制的配置清单不构成实际报价或订单。正式运营前需配置真实产品及适用条款。"],
+      about: ["关于安信云", "安信云面向国内业务，聚焦高防与 DDoS 防护。本站提供产品分类、地域选择与配置预览，帮助梳理部署和防护需求。", "当前展示弹性云服务器、高频云服务器、裸金属服务器与安全证书四类入口。"],
       partners: ["合作伙伴", "这里展示合作伙伴入口。在正式网站中，可用于介绍渠道合作、资源互联及技术服务合作。", "当前样板不征集真实合作申请。你可以通过产品入口了解资源分类，或使用选型助手比较业务方案。"],
       affiliate: ["推广计划", "这里展示推广合作入口，正式网站可接入申请、推广链接和佣金明细。当前样板未设立真实返佣或奖励计划。"],
       console: ["控制台 · 功能预览", "当前为官网设计样板，未接入真实资源控制台。你可以在产品服务中选择地区、预览配置，并复制配置清单。"],
@@ -142,28 +142,28 @@ export default function Home() {
     </header>
 
     <main id="main">
-      <HeroCarousel />
+      <HeroCarousel onGameShield={() => openSolution(2)} />
       <div className="service-rail container" aria-label="快捷入口">
-        {[{ icon: Gift, title: "最新活动", text: "产品资讯，了解最新动态", action: "announcements" }, { icon: Layers3, title: "产品选型，轻松上云", text: "找到适合业务的云上配置", action: "products" }, { icon: Users, title: "生态合作，携手同行", text: "了解合作伙伴与推广计划", action: "partners" }, { icon: MonitorCog, title: "弹性计算，管理简单", text: "云端资源，清楚选配", action: "console" }].map(({ icon: Icon, title, text, action }) => <button type="button" key={title} onClick={() => act(action)}><span className="rail-icon"><Icon size={29} strokeWidth={1.6} /></span><span><strong>{title}</strong><small>{text}</small></span></button>)}
+        {[{ icon: Gift, title: "最新活动", text: "产品资讯，了解最新动态", action: "announcements" }, { icon: Layers3, title: "高防方案选型", text: "对比地域、规格与带宽", action: "products" }, { icon: Users, title: "生态合作，携手同行", text: "了解合作伙伴与推广计划", action: "partners" }, { icon: MonitorCog, title: "弹性计算，管理简单", text: "云端资源，清楚选配", action: "console" }].map(({ icon: Icon, title, text, action }) => <button type="button" key={title} onClick={() => act(action)}><span className="rail-icon"><Icon size={29} strokeWidth={1.6} /></span><span><strong>{title}</strong><small>{text}</small></span></button>)}
       </div>
 
       <ProductCatalog category={category} onCategoryChange={setCategory} onConsult={() => act("consult")} />
 
-      <section className="advantages-section section-pad" id="advantages" aria-labelledby="advantages-title"><div className="container"><div className="section-heading"><h2 id="advantages-title">为什么选择我们</h2><p>从资源选型到部署规划，让每一步上云过程都清楚有序</p></div><div className="advantages-grid">{featureItems.map(({ icon: Icon, title, description, tags }) => <article className="advantage" key={title}><div className="advantage-copy"><h3>{title}</h3><p>{description}</p><div className="feature-tags">{tags.map(tag => <span key={tag}>{tag}</span>)}</div></div><div className="advantage-icon"><Icon size={47} strokeWidth={1.45} /></div></article>)}</div></div></section>
+      <section className="advantages-section section-pad" id="advantages" aria-labelledby="advantages-title"><div className="container"><div className="section-heading"><h2 id="advantages-title">高防选型关注什么</h2><p>从流量、地域和业务入口入手，明确 DDoS 防护需求。</p></div><div className="advantages-grid">{featureItems.map(({ icon: Icon, title, description, tags }) => <article className="advantage" key={title}><div className="advantage-copy"><h3>{title}</h3><p>{description}</p><div className="feature-tags">{tags.map(tag => <span key={tag}>{tag}</span>)}</div></div><div className="advantage-icon"><Icon size={47} strokeWidth={1.45} /></div></article>)}</div></div></section>
 
       <GlobalNetwork />
 
-      <section className="announcements-section section-pad" id="announcements" aria-labelledby="announcements-title"><div className="container"><div className="section-heading"><h2 id="announcements-title">了解最新新闻资讯、网站公告</h2><p>资讯公告、产品说明，了解云服务与网站最新动态</p></div><div className="announcements-grid"><article className="agreement-card"><FileText size={35} strokeWidth={1.5} /><h3>云服务器服务协议</h3><p>了解服务范围、使用规则与权益说明，为每一次上云选择做好准备。</p><p className="agreement-note">本页为设计样板，产品及服务信息用于演示，不产生真实订单。</p><button type="button" className="button button-secondary button-small" onClick={() => act("terms")}>阅读条款<ArrowRight size={15} /></button><Cloud className="agreement-cloud" size={145} strokeWidth={0.8} aria-hidden="true" /></article><div className="notice-card"><div className="notice-heading"><h3>官网公告</h3><span>示例内容</span></div><div className="notice-list">{notices.map((notice, i) => <button type="button" key={notice.title} onClick={() => textDialog(notice.title, `公告示例 · ${notice.date}`, notice.body)}><span>{i === 0 && <b>样板</b>}{notice.title}</span><time dateTime={notice.date}>{notice.date}</time><ChevronRight size={14} /></button>)}</div></div></div></div></section>
+      <section className="announcements-section section-pad" id="announcements" aria-labelledby="announcements-title"><div className="container"><div className="section-heading"><h2 id="announcements-title">高防选型指南与站点公告</h2><p>了解 DDoS 防护选型、线路评估和配置示例</p></div><div className="announcements-grid"><article className="agreement-card"><FileText size={35} strokeWidth={1.5} /><h3>高防服务与选型说明</h3><p>评估高防方案时，请确认接入方式、防护范围、容量与异常流量处置规则。</p><p className="agreement-note">本页为设计样板，产品及服务信息用于演示，不产生真实订单。</p><button type="button" className="button button-secondary button-small" onClick={() => act("terms")}>阅读条款<ArrowRight size={15} /></button><Cloud className="agreement-cloud" size={145} strokeWidth={0.8} aria-hidden="true" /></article><div className="notice-card"><div className="notice-heading"><h3>官网公告</h3><span>示例内容</span></div><div className="notice-list">{notices.map((notice, i) => <button type="button" key={notice.title} onClick={() => textDialog(notice.title, `公告示例 · ${notice.date}`, notice.body)}><span>{i === 0 && <b>样板</b>}{notice.title}</span><time dateTime={notice.date}>{notice.date}</time><ChevronRight size={14} /></button>)}</div></div></div></div></section>
 
-      <section className="assurance-strip" id="assurances" aria-label="服务保障与支持"><div className="container assurance-grid">{[{ icon: HeartHandshake, title: "退款规则", text: "了解交易与退款政策", action: "refund" }, { icon: Gift, title: "新手指引", text: "从选型开始，了解上云步骤", action: "help" }, { icon: ShieldCheck, title: "备案指南", text: "部署之前，了解相关要求", action: "filing" }, { icon: Headphones, title: "客户服务", text: "梳理需求，找到合适方案", action: "consult" }].map(({ icon: Icon, title, text, action }) => <button type="button" key={title} onClick={() => act(action)}><Icon size={33} strokeWidth={1.5} /><strong>{title}</strong><span>{text}</span></button>)}</div></section>
+      <section className="assurance-strip" id="assurances" aria-label="服务保障与支持"><div className="container assurance-grid">{[{ icon: HeartHandshake, title: "退款规则", text: "了解交易与退款政策", action: "refund" }, { icon: Gift, title: "新手指引", text: "了解国内高防选型步骤", action: "help" }, { icon: ShieldCheck, title: "备案指南", text: "部署之前，了解相关要求", action: "filing" }, { icon: Headphones, title: "客户服务", text: "梳理业务入口与防护需求", action: "consult" }].map(({ icon: Icon, title, text, action }) => <button type="button" key={title} onClick={() => act(action)}><Icon size={33} strokeWidth={1.5} /><strong>{title}</strong><span>{text}</span></button>)}</div></section>
     </main>
 
     <footer className="site-footer"><div className="container footer-main"><div className="footer-links">{[
       { title: "服务指南", links: [["安全中心", "product:ssl"], ["实名认证", "login"], ["API 管理", "console"], ["提交工单", "consult"], ["服务条款", "terms"]] },
       { title: "代理系统", links: [["合作伙伴", "partners"], ["代理推广", "affiliate"], ["推广明细", "affiliate"]] },
       { title: "帮助中心", links: [["行业新闻", "announcements"], ["帮助文档", "help"], ["文件下载", "downloads"]] },
-      { title: "关于我们", links: [["公司简介", "about"], ["联系我们", "consult"], ["公司动态", "announcements"], ["全球网络", "network"]] },
-    ].map(group => <div key={group.title}><h3>{group.title}</h3>{group.links.map(([label, action]) => <button type="button" key={label} onClick={() => act(action)}>{label}</button>)}</div>)}</div><div className="footer-contact"><div className="footer-contact-shortcuts"><button type="button" onClick={() => act("consult")}><span><Headphones size={32} strokeWidth={1.4} /></span>选型咨询</button><button type="button" onClick={() => act("help")}><span><BookOpen size={32} strokeWidth={1.4} /></span>帮助文档</button></div><Brand /><p>让计算，连接更多可能。</p></div><div className="technology-row" aria-label="技术主题示意">{[{ icon: LockKeyhole, name: "HTTPS" }, { icon: Globe2, name: "IPv6" }, { icon: Network, name: "HTTP/2" }, { icon: ShieldCheck, name: "HSTS" }, { icon: Globe2, name: "BGP" }].map(({ icon: Icon, name }) => <span key={name}><Icon size={25} strokeWidth={1.5} /><strong>{name}</strong></span>)}<small>技术主题 · 示意</small></div></div><div className="footer-bottom"><div className="container"><div><span>© 2026 安信云 · 云服务官网设计样板</span><p>品牌、配置、价格、区域与公告仅用于演示，不提供实际售卖服务。</p></div><button type="button" onClick={() => act("about")}>关于本站<ChevronRight size={15} /></button></div></div></footer>
+      { title: "关于我们", links: [["公司简介", "about"], ["联系我们", "consult"], ["公司动态", "announcements"], ["国内高防线路", "network"]] },
+    ].map(group => <div key={group.title}><h3>{group.title}</h3>{group.links.map(([label, action]) => <button type="button" key={label} onClick={() => act(action)}>{label}</button>)}</div>)}</div><div className="footer-contact"><div className="footer-contact-shortcuts"><button type="button" onClick={() => act("consult")}><span><Headphones size={32} strokeWidth={1.4} /></span>选型咨询</button><button type="button" onClick={() => act("help")}><span><BookOpen size={32} strokeWidth={1.4} /></span>帮助文档</button></div><Brand /><p>专注国内高防与 DDoS 防护。</p></div><div className="technology-row" aria-label="技术主题示意">{[{ icon: LockKeyhole, name: "HTTPS" }, { icon: Globe2, name: "IPv6" }, { icon: Network, name: "HTTP/2" }, { icon: ShieldCheck, name: "HSTS" }, { icon: Globe2, name: "BGP" }].map(({ icon: Icon, name }) => <span key={name}><Icon size={25} strokeWidth={1.5} /><strong>{name}</strong></span>)}<small>技术主题 · 示意</small></div></div><div className="footer-bottom"><div className="container"><div><span>© 2026 安信云 · 国内高防与 DDoS 防护</span><p>品牌、配置、价格、区域与公告仅用于演示，不提供实际售卖服务。</p></div><button type="button" onClick={() => act("about")}>关于本站<ChevronRight size={15} /></button></div></div></footer>
 
     <aside className="floating-tools" aria-label="页面工具"><button className="support-trigger" type="button" aria-label="在线咨询" onClick={() => act("consult")}><Headphones size={24} strokeWidth={1.6} /><span>在线咨询</span></button><button type="button" aria-label="查看帮助文档" onClick={() => act("help")}><BookOpen size={20} /></button><button type="button" aria-label="查看服务条款" onClick={() => act("terms")}><FileText size={20} /></button>{showTop && <button type="button" aria-label="返回顶部" onClick={() => jump("top")}><ArrowUp size={21} /></button>}</aside>
 

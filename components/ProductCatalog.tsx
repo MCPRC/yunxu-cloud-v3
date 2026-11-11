@@ -10,32 +10,32 @@ type ProductEntry = { id: string; name: string; tag?: string; description: strin
 type ComputePlan = { name: string; monthlyPrice: number; specs: [string, string][] };
 
 const categories = [
-  { id: "cloud" as const, name: "弹性云服务器", code: "ECS", icon: Cloud, description: "灵活组合计算、内存与存储资源，为网站应用与业务系统选择合适的部署起点。", features: ["多地域配置选择", "计算与存储按需组合", "适用于网站与业务应用"] },
-  { id: "hcs" as const, name: "高频云服务器", code: "HCS", icon: Cpu, description: "面向关注单核性能的应用，按工作负载选择通用型或轻量型高频计算配置。", features: ["通用与轻量两种类型", "面向计算密集型应用", "适用于构建与实时服务"] },
-  { id: "metal" as const, name: "裸金属服务器", code: "BMS", icon: Server, description: "为需要独立物理资源的业务，提供清晰的硬件配置与地域选型思路。", features: ["独立物理资源配置", "多种地域与线路示例", "适用于数据库与专属集群"] },
-  { id: "ssl" as const, name: "安全证书", code: "SSL", icon: ShieldCheck, description: "根据网站身份验证需求选择证书类型，为域名规划 HTTPS 连接与证书管理。", features: ["DV 与 OV 类型选择", "单域名及多域名示例", "适用于网站与应用入口"] },
+  { id: "cloud" as const, name: "弹性云服务器", code: "ECS", icon: Cloud, description: "为网站与在线应用选择源站的计算、内存、存储及带宽配置，防护容量按业务风险单独评估。", features: ["多地域配置选择", "计算与存储按需组合", "适用于网站与业务应用"] },
+  { id: "hcs" as const, name: "高频云服务器", code: "HCS", icon: Cpu, description: "为游戏与实时应用评估源站单核性能，结合连接数和延迟要求比较通用型与轻量型配置。", features: ["通用与轻量两种类型", "面向计算密集型应用", "适用于构建与实时服务"] },
+  { id: "metal" as const, name: "裸金属服务器", code: "BMS", icon: Server, description: "适合需要独立物理源站的业务，可对比硬件规格、部署地域和线路示例。", features: ["独立物理资源配置", "多种地域与线路示例", "适用于数据库与专属集群"] },
+  { id: "ssl" as const, name: "安全证书", code: "SSL", icon: ShieldCheck, description: "为网站入口选择 DV 或 OV 证书，规划 HTTPS 身份验证和加密。流量防护需单独评估。", features: ["DV 与 OV 类型选择", "单域名及多域名示例", "适用于网站与应用入口"] },
 ];
 
 const entries: Record<CategoryId, ProductEntry[]> = {
   cloud: [
-    { id: "ecs-guangzhou", name: "广东 · 广州", tag: "BGP", description: "面向华南的网站与应用部署", detail: "弹性计算 · 按需选配", region: "广州" },
-    { id: "ecs-shenzhen", name: "广东 · 深圳", tag: "电信", description: "适合企业应用与开发环境", detail: "弹性计算 · 按需选配", region: "深圳" },
-    { id: "ecs-ningbo", name: "浙江 · 宁波", tag: "BGP", description: "面向华东的业务与服务部署", detail: "弹性计算 · 按需选配", region: "宁波" },
-    { id: "ecs-xiangyang", name: "湖北 · 襄阳", tag: "电信", description: "适合网站与持续运行的业务", detail: "弹性计算 · 按需选配", region: "襄阳" },
-    { id: "ecs-kunming", name: "云南 · 昆明", tag: "BGP", description: "面向西南的应用部署示例", detail: "弹性计算 · 按需选配", region: "昆明" },
-    { id: "ecs-haikou", name: "海南 · 海口", tag: "BGP", description: "适合轻量应用与开发测试", detail: "弹性计算 · 按需选配", region: "海口" },
+    { id: "ecs-guangzhou", name: "广东 · 广州", tag: "BGP", description: "面向华南的网站与应用部署", detail: "源站计算 · 查看配置", region: "广州" },
+    { id: "ecs-shenzhen", name: "广东 · 深圳", tag: "电信", description: "适合企业应用与开发环境", detail: "源站计算 · 查看配置", region: "深圳" },
+    { id: "ecs-ningbo", name: "浙江 · 宁波", tag: "BGP", description: "面向华东的业务与服务部署", detail: "源站计算 · 查看配置", region: "宁波" },
+    { id: "ecs-xiangyang", name: "湖北 · 襄阳", tag: "电信", description: "适合网站与持续运行的业务", detail: "源站计算 · 查看配置", region: "襄阳" },
+    { id: "ecs-kunming", name: "云南 · 昆明", tag: "BGP", description: "面向西南的应用部署示例", detail: "源站计算 · 查看配置", region: "昆明" },
+    { id: "ecs-haikou", name: "海南 · 海口", tag: "BGP", description: "适合轻量应用与开发测试", detail: "源站计算 · 查看配置", region: "海口" },
   ],
   hcs: [
     { id: "hcs-general", name: "通用型 · 高频云", tag: "AMD", description: "为构建任务与业务计算选择资源", detail: "通用配置 · 查看方案", region: "广州" },
     { id: "hcs-light", name: "轻量型 · 高频云", tag: "AMD", description: "为轻量应用与测试环境规划配置", detail: "轻量配置 · 查看方案", region: "深圳" },
   ],
   metal: [
-    { id: "bms-shenzhen", name: "广东 · 深圳", tag: "电信", description: "独立物理资源，承载专属业务", detail: "裸金属计算 · 查看配置", region: "深圳" },
-    { id: "bms-guangzhou", name: "华南 · 广州", tag: "BGP", description: "面向华南的专属环境部署", detail: "裸金属计算 · 查看配置", region: "广州" },
-    { id: "bms-ningbo-telecom", name: "浙江 · 宁波", tag: "电信", description: "适合企业系统与数据库部署", detail: "裸金属计算 · 查看配置", region: "宁波" },
-    { id: "bms-ningbo-bgp", name: "浙江 · 宁波", tag: "BGP", description: "为多业务场景规划独立资源", detail: "裸金属计算 · 查看配置", region: "宁波" },
-    { id: "bms-ningbo-security", name: "浙江 · 宁波", tag: "精防", description: "结合防护需求规划业务入口", detail: "裸金属计算 · 查看配置", region: "宁波" },
-    { id: "bms-xiangyang", name: "湖北 · 襄阳", tag: "电信", description: "面向专属集群的硬件配置示例", detail: "裸金属计算 · 查看配置", region: "襄阳" },
+    { id: "bms-shenzhen", name: "广东 · 深圳", tag: "电信", description: "独立物理资源，承载专属业务", detail: "独立源站 · 查看配置", region: "深圳" },
+    { id: "bms-guangzhou", name: "华南 · 广州", tag: "BGP", description: "面向华南的专属环境部署", detail: "独立源站 · 查看配置", region: "广州" },
+    { id: "bms-ningbo-telecom", name: "浙江 · 宁波", tag: "电信", description: "适合企业系统与数据库部署", detail: "独立源站 · 查看配置", region: "宁波" },
+    { id: "bms-ningbo-bgp", name: "浙江 · 宁波", tag: "BGP", description: "为多业务场景规划独立资源", detail: "独立源站 · 查看配置", region: "宁波" },
+    { id: "bms-ningbo-security", name: "浙江 · 宁波", tag: "精防", description: "结合防护需求规划业务入口", detail: "独立源站 · 查看配置", region: "宁波" },
+    { id: "bms-xiangyang", name: "湖北 · 襄阳", tag: "电信", description: "面向专属集群的硬件配置示例", detail: "独立源站 · 查看配置", region: "襄阳" },
   ],
   ssl: [
     { id: "ssl-dv", name: "DV 安全证书", description: "域名验证，适合个人网站与应用", detail: "域名验证型 · 查看配置" },
@@ -165,8 +165,8 @@ export default function ProductCatalog({ category: controlledCategory, onCategor
 
   return <section className="products-section" id="products" aria-labelledby="pc-heading">
     <div className="container pc-section-heading">
-      <h2 id="pc-heading">提供企业一站式产品与服务</h2>
-      <p>从弹性计算到专属资源，为不同业务需求选择合适的云产品。</p>
+      <h2 id="pc-heading">按业务场景选择部署配置</h2>
+      <p>对比部署地域、服务器规格与带宽，为国内高防方案选型做准备。</p>
     </div>
     <div className="pc-catalog-band"><div className="container pc-catalog-shell">
       <div className="pc-tabs" role="tablist" aria-label="云产品分类">
@@ -187,7 +187,7 @@ export default function ProductCatalog({ category: controlledCategory, onCategor
             <p>{activeCategory.description}</p>
           </div>
           <div className="pc-consult">
-            <h4>需要定制配置？</h4>
+            <h4>需要规划高防方案？</h4>
             <p>从你的业务需求出发，<br />了解适合的产品组合。</p>
             {onConsult ? <button type="button" onClick={onConsult}><Headphones size={16} aria-hidden="true" />定制咨询<ArrowRight size={15} aria-hidden="true" /></button> : <a href="#help"><Headphones size={16} aria-hidden="true" />了解选型建议<ArrowRight size={15} aria-hidden="true" /></a>}
           </div>
